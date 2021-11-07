@@ -85,6 +85,14 @@ class Car {
 
 }
 
+
+
+
+
+
+
+
+
 const fura = new Car('czarne', 'bmw', 696969);
 const Maz = new Person('Hubert', 'Pomorski', 34, '30.10.1987', fura, fura.getColor());
 //console.log(Maz);
@@ -106,5 +114,42 @@ console.log(Zona.getPersonActualYear());
 //console.log(Zona.getPersonMonth());
 
 
+class DateComparator {
+  constructor(person1, person2) {
+    this.person1 = person1;
+    this.person2 = person2;
+  }
+
+  showOlderPerson() {
+
+    const personOneDateBirth = this.person1.birthDate;
+
+    const personOneYear = personOneDateBirth.substr(6,4);
+
+    const personOneYearIntiger = parseInt(personOneYear);
 
 
+
+    const personTwoDateBirth = this.person2.birthDate;
+
+    const personTwoYear = personTwoDateBirth.substr(6,4);
+
+    const personTwoYearIntiger = parseInt(personTwoYear);
+
+    if (personOneYearIntiger > personTwoYearIntiger){
+      return 'Second person is older';
+    } else {
+      return 'First person is older';
+    }
+
+
+
+}
+
+
+
+}
+
+const dateComparator = new DateComparator(Zona,Maz);
+const result = dateComparator.showOlderPerson();
+console.log(result);
